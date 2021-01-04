@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.css"
+      integrity="sha512-5fsy+3xG8N/1PV5MIJz9ZsWpkltijBI48gBzQ/Z2eVATePGHOkMIn+xTDHIfTZFVb9GMpflF2wOWItqxAP2oLQ=="
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="shortcut icon" href="/favicon.png" type="image/x-icon">
+    <title>COVID-19 Advice & Stats</title>
+  </head>
+  <body>
+    <div class="container">
+      <h1 class="margin-1">Covid-19 Advice & Stats</h1>
+      <i class="fas fa-virus fa-3x"></i>
+      <p class="margin-1">
+        Covid-19 is a global disease that first broke out in Wuhan, China. It is
+        highly infectious and is caused by a recently discovered form of coronavirus. Some
+        people infected with Covid-19 are impacted more than others meaning some 
+        might end up needing ventilators while others would
+        not. We have been provided with advice that can prevent us from contracting and spreading the virus. 
+        <ul>
+          <li>The core advise is to:</li>
+          <li>Wear face coverings</li>
+          <li>Stay at home when we can</li>
+          <li>Self isolate if we have symptoms</li>
+          <li>Maintain a distance of 2m from others</li>
+          <li>Avoid physcial contact</li>
+          <li>Keep away from large gatherings</li>
+          <li>For more advice head to the 
+            <a href="https://www.who.int/emergencies/diseases/novel-coronavirus-2019/advice-for-public">
+              WHO website 
+              <i class="fas fa-external-link-alt"></i>
+            </a>
+          </li>
+        </ul>
+      </p>
+      <div class="top margin-1">
+        <h3>Coronavirus Tracker</h3>
+        <i class="fas fa-info-circle fa-3x"></i>
+        <br>
+        <p>Enter a country name to find out its coronavirus information </p>
+      </div>
+      <input type="text" id="country" placeholder="Enter Country name" />
+      <button class="get-data">Get Data</button>
+    </div>
+    <div class="stats"></div>
+    <footer>
+      <p>&COPY; Hamsa Elmi 2021</p>
+    </footer>
+    <script src="app.js"></script>
+  </body>
+</html>

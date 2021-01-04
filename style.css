@@ -1,0 +1,61 @@
+* {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+  font-size: 1.1em;
+}
+
+button {
+  color: white !important;
+}
+
+html {
+  background: linear-gradient(rgb(94, 0, 161), rgb(41, 41, 255));
+}
+
+body {
+  color: white;
+}
+
+a {
+  font-weight: 900;
+  color: #fff;
+}
+
+.margin-1 {
+  margin: 7.5vh 0;
+}
+
+.data {
+  display: inline-block;
+  margin: 3vh 2.5%;
+  padding: 1% 0.5%;
+  border: white solid 2px;
+  font-weight: bolder;
+  text-align: center;
+  word-wrap: break-word;
+}
+
+.data h4 {
+  padding: 1%;
+  font-weight: bold;
+  border-bottom: #fff 2px solid;
+}
+
+ul li:first-child {
+  list-style-type: none;
+  text-decoration: underline;
+  font-weight: bold;
+}
+
+ul li {
+  list-style-type: disc;
+}
+
+footer {
+  margin-top: 5vh;
+  position: relative;
+  bottom: 0%;
+  left: 0;
+}
