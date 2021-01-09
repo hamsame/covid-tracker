@@ -6,7 +6,6 @@ Use the correct case when entering a country name like France or Peru (I intend 
 
 # To do
 I want to add more to the site such as:
--	removing case sensitivity for easier user experience
 -	add commas to make the numbers more readable
 -	output a table that has stats for each continent
 -	output top 5 countries that have been impacted the most by covid
