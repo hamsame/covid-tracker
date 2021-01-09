@@ -16,12 +16,13 @@ async function getStats(e) {
   const data = await response.json();
   let output = "";
   output = `<div class="data">
-  <h4>${country.toUpperCase()}</h4>
-  <p>Total Confirmed Cases: ${data.All.confirmed}</p>
-  <p>Total Recovered: ${data.All.recovered}</p>
-  <p style>Total Deaths: </span>${data.All.deaths}</p>
-  <p>Life Expectancy: ${data.All.life_expectancy}
-  <p>Continent: ${data.All.continent}</p></div>`;
+  <h4>${country.toUpperCase()}</h4> 
+  <p>Total Confirmed Cases: ${data.All.confirmed.toLocaleString()}</p>
+  <p>Total Recovered: ${data.All.recovered.toLocaleString()}</p>
+  <p style>Total Deaths: </span>${data.All.deaths.toLocaleString()}</p>
+  <p>Life Expectancy: ${data.All.life_expectancy.toLocaleString()}
+  <p>Continent: ${data.All.continent.toLocaleString()}</p>
+  Delete: <i id="bin" class="fas fa-trash-alt"></i></div>`;
   document.querySelector(".stats").innerHTML += output;
   e.preventDefault();
 }
