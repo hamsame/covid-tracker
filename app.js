@@ -1,15 +1,30 @@
-// event listener
+// Gets names of countries and appends it to selection
+document.addEventListener("DOMContentLoaded", (e) => {
+  const request = new XMLHttpRequest();
+  request.open("GET", "https://covid-api.mmediagroup.fr/v1/cases", true);
+
+  request.onload = () => {
+    if (request.status == 200) {
+      const res = JSON.parse(request.responseText);
+      for (country in res) {
+        var option = document.createElement("option");
+        option.className = "option";
+        option.value = `${country}`;
+        var optionValue = document.createTextNode(country);
+        option.appendChild(optionValue);
+        document.querySelector("#countryy").appendChild(option);
+      }
+    }
+  };
+  request.send();
+  e.preventDefault();
+});
+
+// event listener for function that gets stats
 document.querySelector(".get-data").addEventListener("click", getStats);
-
-// function that gets Stats
 async function getStats(e) {
-  let country = document.querySelector("#country").value;
-  country = country
-    .toLowerCase()
-    .split(" ")
-    .map((s) => s.charAt(0).toUpperCase() + s.substring(1))
-    .join(" ");
-
+  let selectedCountry = document.querySelector("#countryy");
+  let country = selectedCountry.value;
   // get data requested from API using AJAX
   const data = new XMLHttpRequest();
   data.open(
@@ -22,15 +37,28 @@ async function getStats(e) {
   data.onload = async function () {
     if (data.status == 200) {
       const data = await JSON.parse(this.responseText);
-      output = `<div class="data">
-        <h4>${country.toUpperCase()}</h4>
-        <p>Total Confirmed Cases: ${data.All.confirmed.toLocaleString()}</p>
-        <p>Total Recovered: ${data.All.recovered.toLocaleString()}</p>
-        <p style>Total Deaths: </span>${data.All.deaths.toLocaleString()}</p>
-        <p>Life Expectancy: ${data.All.life_expectancy.toLocaleString()}
-        <p>Continent: ${data.All.continent.toLocaleString()}</p>
+      if (country !== "Global") {
+        output = `<div class="data">
+        <h4>${data.All.country}</h4>
+        <p>Total Confirmed Cases: ${data.All.confirmed.toLocaleString("en")}</p>
+        <p>Total Recovered: ${data.All.recovered.toLocaleString("en")}</p>
+        <p style>Total Deaths: </span>${data.All.deaths.toLocaleString(
+          "en"
+        )}</p>
+        <p>Continent: ${data.All.continent.toLocaleString("en")}</p>
         Delete: <i id="bin" class="fas fa-trash-alt"></i></div>`;
-      document.querySelector(".stats").innerHTML += output;
+        document.querySelector(".stats").innerHTML += output;
+      } else {
+        output = `<div class="data">
+        <h4>Global</h4>
+        <p>Total Confirmed Cases: ${data.All.confirmed.toLocaleString("en")}</p>
+        <p>Total Recovered: ${data.All.recovered.toLocaleString("en")}</p>
+        <p style>Total Deaths: </span>${data.All.deaths.toLocaleString(
+          "en"
+        )}</p>
+        Delete: <i id="bin" class="fas fa-trash-alt"></i></div>`;
+        document.querySelector(".stats").innerHTML += output;
+      }
 
       // delete info table
       document.querySelector("#bin").addEventListener("click", deleteInfo);
@@ -41,7 +69,6 @@ async function getStats(e) {
       }
     }
   };
-
   e.preventDefault();
   data.send();
 }
