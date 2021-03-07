@@ -11,7 +11,22 @@ button {
 }
 
 html {
-  background: linear-gradient(rgb(94, 0, 161), rgb(41, 41, 255));
+  background: linear-gradient(-45deg, darkblue, purple, indigo, navy);
+  background-size: 400% 400%;
+  animation: bgcolor 9s ease infinite;
+  color: white;
+}
+
+@keyframes bgcolor {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
 
 body {
